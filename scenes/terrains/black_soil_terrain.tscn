@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cb8whrit5dh4i"]
+
+[ext_resource type="Script" uid="uid://b4pvsmd2h5rhn" path="res://scripts/worldgen/Terrain.cs" id="1_wsjid"]
+[ext_resource type="Texture2D" uid="uid://cnp50fsqrn35f" path="res://assets/terrain/Dirt.png" id="2_0cgh5"]
+[ext_resource type="Shader" uid="uid://dd76j6e8xd2dm" path="res://shaders/terrain_noise.gdshader" id="2_cruwx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hddr"]
+shader = ExtResource("2_cruwx")
+shader_parameter/camera_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cgh5"]
+shader = ExtResource("2_cruwx")
+shader_parameter/camera_offset = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_cruwx"]
+colors = PackedColorArray(0.32, 0.21056, 0.14719999, 0.2509804, 0.4, 0.27633333, 0.18800001, 0.24313726)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2hddr"]
+noise_type = 3
+seed = 25
+frequency = 0.0042
+fractal_type = 2
+fractal_octaves = 7
+fractal_lacunarity = 4.0
+fractal_gain = 0.6
+fractal_weighted_strength = 0.1
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_85ond"]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_2hddr")
+color_ramp = SubResource("Gradient_cruwx")
+seamless = true
+
+[node name="Terrain" type="Node2D" unique_id=1150974203 node_paths=PackedStringArray("noizeSprite")]
+texture_filter = 3
+script = ExtResource("1_wsjid")
+noizeSprite = NodePath("Sprite2D")
+
+[node name="Dirt" type="Sprite2D" parent="." unique_id=1883948729]
+material = SubResource("ShaderMaterial_2hddr")
+scale = Vector2(1920, 1920)
+texture = ExtResource("2_0cgh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1274179526]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0cgh5")
+texture = SubResource("NoiseTexture2D_85ond")

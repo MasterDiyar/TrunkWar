@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d3ddcrod618nd"]
+
+[ext_resource type="Script" uid="uid://btwvtg138ey18" path="res://scripts/trees/Tree.cs" id="1_cmb57"]
+
+[node name="Tree" type="Area2D" unique_id=632159501]
+script = ExtResource("1_cmb57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1578734701]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1009044770]
+region_enabled = true

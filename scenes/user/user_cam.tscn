@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d3jcqdqf2eaja"]
+
+[ext_resource type="Script" uid="uid://cjkw8ecrh1apj" path="res://scripts/user/UserCam.cs" id="1_othyo"]
+
+[node name="UserCam" type="Camera2D" unique_id=288762780]
+script = ExtResource("1_othyo")

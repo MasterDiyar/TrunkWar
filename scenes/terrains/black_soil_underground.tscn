@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b2wxhwrdlo86y"]
+
+[ext_resource type="Script" uid="uid://b4pvsmd2h5rhn" path="res://scripts/worldgen/Terrain.cs" id="1_mc7jv"]
+[ext_resource type="Texture2D" uid="uid://cnp50fsqrn35f" path="res://assets/terrain/Dirt.png" id="2_q76xr"]
+[ext_resource type="Shader" uid="uid://dd76j6e8xd2dm" path="res://shaders/terrain_noise.gdshader" id="3_0dr34"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_un3bl"]
+shader = ExtResource("3_0dr34")
+shader_parameter/camera_offset = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_3s8rl"]
+colors = PackedColorArray(0.21, 0.21, 0.21, 0.22352941, 0.5098251, 0.5098251, 0.5098251, 0.21568628)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_81m5u"]
+noise_type = 2
+frequency = 0.023
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_flkc4"]
+width = 1920
+height = 1080
+noise = SubResource("FastNoiseLite_81m5u")
+color_ramp = SubResource("Gradient_3s8rl")
+seamless = true
+
+[node name="black_soil_underground" type="Node2D" unique_id=362696409 node_paths=PackedStringArray("noizeSprite")]
+texture_filter = 3
+script = ExtResource("1_mc7jv")
+noizeSprite = NodePath("Sprite2D")
+
+[node name="Dirt" type="Sprite2D" parent="." unique_id=1694495149]
+modulate = Color(0.8427504, 0.8427504, 0.8427504, 1)
+scale = Vector2(1920, 1920)
+texture = ExtResource("2_q76xr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1409360195]
+modulate = Color(1, 1, 1, 0.78039217)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_un3bl")
+texture = SubResource("NoiseTexture2D_flkc4")
