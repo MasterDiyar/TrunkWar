@@ -23,7 +23,7 @@ project/assembly_name="TrunkWar"
 
 folder_colors={
 "res://assets/": "purple",
-"res://scenes/trees/": "red",
+"res://scenes/prefab/": "red",
 "res://scripts/": "blue"
 }
 

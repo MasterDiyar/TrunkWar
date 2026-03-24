@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://sx1d7vmr1xgf"]
+
+[ext_resource type="PackedScene" uid="uid://d3ddcrod618nd" path="res://scenes/prefab/tree.tscn" id="1_jy7ks"]
+[ext_resource type="Texture2D" uid="uid://b11wkw544w1mr" path="res://assets/trees/treees.png" id="2_ivxsx"]
+[ext_resource type="Texture2D" uid="uid://dukndbgjmpns3" path="res://assets/trees/treees_n.png" id="3_v234l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy7ks"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ealcq"]
+diffuse_texture = ExtResource("2_ivxsx")
+normal_texture = ExtResource("3_v234l")
+texture_filter = 3
+
+[node name="WorldTree" unique_id=632159501 node_paths=PackedStringArray("treeSprite") instance=ExtResource("1_jy7ks")]
+levelCrops = Dictionary[int, Rect2]({
+1: Rect2(0, 0, 16, 16),
+2: Rect2(16, 0, 32, 32),
+3: Rect2(48, 0, 48, 48),
+5: Rect2(0, 48, 64, 64)
+})
+treeSprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1578734701]
+shape = SubResource("RectangleShape2D_jy7ks")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1009044770]
+texture = SubResource("CanvasTexture_ealcq")
+region_enabled = false
