@@ -29,6 +29,7 @@ public partial class GameManager : Node2D
 	};
 
 	public UpgradeControl upgrader;
+	public Tree mainTree;
 	
 	
 
@@ -58,6 +59,7 @@ public partial class GameManager : Node2D
 	public override void _Ready()
 	{
 		upgrader = (UpgradeControl)GetTree().GetFirstNodeInGroup("upgrader");
+		mainTree = (Tree)GetTree().GetFirstNodeInGroup("main");
 	}
 
 	public void PlaceUpgrader(Vector2 pos)

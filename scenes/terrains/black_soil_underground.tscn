@@ -24,6 +24,7 @@ color_ramp = SubResource("Gradient_3s8rl")
 seamless = true
 
 [node name="black_soil_underground" type="Node2D" unique_id=362696409 node_paths=PackedStringArray("noizeSprite")]
+show_behind_parent = true
 texture_filter = 3
 script = ExtResource("1_mc7jv")
 noizeSprite = NodePath("Sprite2D")

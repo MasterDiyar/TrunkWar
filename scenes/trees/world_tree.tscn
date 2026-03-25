@@ -11,7 +11,7 @@ diffuse_texture = ExtResource("2_ivxsx")
 normal_texture = ExtResource("3_v234l")
 texture_filter = 3
 
-[node name="WorldTree" unique_id=632159501 node_paths=PackedStringArray("treeSprite") instance=ExtResource("1_jy7ks")]
+[node name="WorldTree" unique_id=632159501 node_paths=PackedStringArray("treeSprite") groups=["main"] instance=ExtResource("1_jy7ks")]
 levelCrops = Dictionary[int, Rect2]({
 1: Rect2(0, 0, 16, 16),
 2: Rect2(16, 0, 32, 32),

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b4pvsmd2h5rhn" path="res://scripts/worldgen/Terrain.cs" id="1_wsjid"]
 [ext_resource type="Texture2D" uid="uid://cnp50fsqrn35f" path="res://assets/terrain/Dirt.png" id="2_0cgh5"]
 [ext_resource type="Shader" uid="uid://dd76j6e8xd2dm" path="res://shaders/terrain_noise.gdshader" id="2_cruwx"]
+[ext_resource type="PackedScene" uid="uid://6o54fquu2ufe" path="res://scenes/ui/visibility_change_on_press.tscn" id="4_cruwx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hddr"]
 shader = ExtResource("2_cruwx")
@@ -39,6 +40,7 @@ script = ExtResource("1_wsjid")
 noizeSprite = NodePath("Sprite2D")
 
 [node name="Dirt" type="Sprite2D" parent="." unique_id=1883948729]
+show_behind_parent = true
 material = SubResource("ShaderMaterial_2hddr")
 scale = Vector2(1920, 1920)
 texture = ExtResource("2_0cgh5")
@@ -47,3 +49,7 @@ texture = ExtResource("2_0cgh5")
 texture_repeat = 2
 material = SubResource("ShaderMaterial_0cgh5")
 texture = SubResource("NoiseTexture2D_85ond")
+
+[node name="VisibilityChangeOnPress" parent="." unique_id=598259502 node_paths=PackedStringArray("parent") instance=ExtResource("4_cruwx")]
+InputName = "e"
+parent = NodePath("..")
