@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://df7fgo5kcih72" path="res://assets/fonts/Forest.ttf" id="4_bpdlo"]
 [ext_resource type="Texture2D" uid="uid://brp6e1v2wsi2y" path="res://assets/ui/btn_red.png" id="5_spi2j"]
 
-[node name="UpgradeControl" type="Control" unique_id=1673975209]
+[node name="UpgradeControl" type="Control" unique_id=1673975209 groups=["upgrader"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

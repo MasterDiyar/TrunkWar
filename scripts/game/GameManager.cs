@@ -27,6 +27,8 @@ public partial class GameManager : Node2D
 		{"Sugar", 100},
 		{"Chitin", 100}
 	};
+
+	public UpgradeControl upgrader;
 	
 	
 
@@ -51,5 +53,17 @@ public partial class GameManager : Node2D
 		foreach (var (key, f) in count)
 			if (Items.TryGetValue(key, out float value))
 				Items[key] = float.Max(value + f, MaxItems[key]);
+	}
+	
+	public override void _Ready()
+	{
+		upgrader = (UpgradeControl)GetTree().GetFirstNodeInGroup("upgrader");
+	}
+
+	public void PlaceUpgrader(Vector2 pos)
+	{
+		upgrader.Show();
+		Vector2 exactPos = new Vector2(pos.X, pos.Y);
+		upgrader.Position = exactPos;
 	}
 }
