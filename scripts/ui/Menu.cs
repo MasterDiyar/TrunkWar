@@ -43,8 +43,4 @@ public partial class Menu : Control
 		QueueFree();
 	}
 	
-
-	public override void _Process(double delta)
-	{
-	}
 }

@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://dbjbg5btevx5f"]
+
+[ext_resource type="Texture2D" uid="uid://dgcpwapfx4cnt" path="res://assets/ui/ninepatch.png" id="1_np771"]
+[ext_resource type="Texture2D" uid="uid://cuhxs7sg74gfw" path="res://assets/trees/worldTree.png" id="2_b48hx"]
+[ext_resource type="Texture2D" uid="uid://ogmn5xyhmrj0" path="res://assets/trees/icon.png" id="3_ybo4u"]
+
+[node name="Control" type="Control" unique_id=342368432]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 393.0
+offset_bottom = 285.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=116216886]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_np771")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=2034501332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer" unique_id=1038100013]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1355407478]
+layout_mode = 2
+texture = ExtResource("2_b48hx")
+stretch_mode = 3
+
+[node name="leaf" type="Button" parent="NinePatchRect/MarginContainer/HBoxContainer/TextureRect" unique_id=315796532]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.33800003
+anchor_bottom = 0.13800001
+offset_left = 14.0
+offset_top = 31.0
+offset_right = 9.735996
+offset_bottom = 36.086
+icon = ExtResource("3_ybo4u")
+flat = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/TextureRect/leaf" unique_id=2092626644]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="trunk" type="Button" parent="NinePatchRect/MarginContainer/HBoxContainer/TextureRect" unique_id=1176649062]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.33800003
+anchor_bottom = 0.13800001
+offset_left = 7.0
+offset_top = 130.0
+offset_right = 2.7359962
+offset_bottom = 135.086
+icon = ExtResource("3_ybo4u")
+flat = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/TextureRect/trunk" unique_id=266479387]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="branch" type="Button" parent="NinePatchRect/MarginContainer/HBoxContainer/TextureRect" unique_id=205096971]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.33800003
+anchor_bottom = 0.13800001
+offset_left = 83.0
+offset_top = 89.0
+offset_right = 78.73599
+offset_bottom = 94.086
+icon = ExtResource("3_ybo4u")
+flat = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/TextureRect/branch" unique_id=947832814]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="root" type="Button" parent="NinePatchRect/MarginContainer/HBoxContainer/TextureRect" unique_id=189628]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.33800003
+anchor_bottom = 0.13800001
+offset_left = 83.0
+offset_top = 187.0
+offset_right = 78.73599
+offset_bottom = 192.086
+icon = ExtResource("3_ybo4u")
+flat = true
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/TextureRect/root" unique_id=373442902]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+
+[node name="control" type="Control" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=786707750]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Info" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer/control" unique_id=878437131]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -4.0
+offset_right = 4.0
+offset_bottom = 101.0
+grow_horizontal = 2
+text = "World tree
+sun absorbtion: 100 en/sec
+water consumption: 69 mL/sec
+carbon extraction: 10g /sec
+oxygen generation: 7.2g /sec"
+
+[node name="Produce" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer/control" unique_id=860462827]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -127.0
+offset_right = 208.0
+grow_vertical = 0
+text = "empty"
+vertical_alignment = 2
