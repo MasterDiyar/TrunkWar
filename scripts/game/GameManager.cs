@@ -55,6 +55,11 @@ public partial class GameManager : Node2D
 			if (Items.TryGetValue(key, out float value))
 				Items[key] = float.Max(value + f, MaxItems[key]);
 	}
+
+	internal float GetItemCount(string key)
+	{
+		return Items.GetValueOrDefault(key, 0);
+	}
 	
 	public override void _Ready()
 	{
