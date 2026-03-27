@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using TrunkWar.scripts.trees;
 
 public partial class Tree : Area2D
 {
@@ -9,6 +10,8 @@ public partial class Tree : Area2D
 	private CollisionShape2D collisionShape;
 	private Timer generatorTimer;
 	private GameManager gm;
+	
+	Upgrade[] upgrades;
 	
 	[ExportGroup("Producing")]
 	[Export] public Godot.Collections.Dictionary<string, float> Producing = new()
@@ -59,7 +62,7 @@ public partial class Tree : Area2D
 	
 
 
-	public void Upgrade()
+	public void LevelUp()
 	{
 		treeSprite.RegionRect = levelCrops[1];
 		var shape = (RectangleShape2D)collisionShape.Shape;
@@ -101,5 +104,19 @@ public partial class Tree : Area2D
 		}
 
 		return isAlive;
+	}
+
+	public void AddComponent(Upgrade upgrade)
+	{
+		
+	}
+
+	public void AddConsumer(string id, float val)
+	{
+		if (Consuming.ContainsKey(id))
+		{
+			Consuming[id] += val;
+		}
+		else GD.PrintErr("Consumer not found: " + id);
 	}
 }

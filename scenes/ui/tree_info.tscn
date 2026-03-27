@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://cyvv3wct5bebd"]
+[gd_scene format=3 uid="uid://dbjbg5btevx5f"]
 
 [ext_resource type="Texture2D" uid="uid://dgcpwapfx4cnt" path="res://assets/ui/ninepatch.png" id="1_np771"]
+[ext_resource type="Script" uid="uid://cq82poo5o08yh" path="res://scripts/ui/TreeInfo.cs" id="1_ybo4u"]
 [ext_resource type="Texture2D" uid="uid://cuhxs7sg74gfw" path="res://assets/trees/worldTree.png" id="2_b48hx"]
 [ext_resource type="Texture2D" uid="uid://cfmklfrpnljm6" path="res://assets/trees/treeBG.png" id="2_ybo4u"]
 [ext_resource type="Texture2D" uid="uid://ogmn5xyhmrj0" path="res://assets/trees/icon.png" id="3_ybo4u"]
@@ -10,6 +11,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 478.0
 offset_bottom = 302.0
+script = ExtResource("1_ybo4u")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=116216886]
 texture_filter = 3
