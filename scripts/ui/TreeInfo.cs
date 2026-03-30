@@ -12,13 +12,40 @@ public partial class TreeInfo : Control
 
 	public void ApplyTree(Tree tree)
 	{
+		_inputText(tree);
+		
+		
+		
+		
+	}
+
+	void _inputText(Tree tree)
+	{
 		StringBuilder ProductionText = new StringBuilder();
-		
-		ProductionText.AppendLine(treeType);
-		foreach (var con in tree.Consuming)
-			ProductionText.AppendLine($"{con.Key}: {con.Value}");
-			
-		
-		
+        		
+        		ProductionText.AppendLine(treeType);
+        		foreach (var con in tree.Consuming)
+        			ProductionText.AppendLine($"{con.Key}: {con.Value}");
+        			
+        		inputLabel.Text = ProductionText.ToString();
+	}
+
+	void _imageFetch(string name, string whom)
+	{
+		switch (whom)
+		{
+			case "leaf" :
+				
+				break;
+			case "branch":
+					
+				break;
+			case "trunc" :
+				break;
+					
+			case "root":
+				
+				break;
+		}
 	}
 }

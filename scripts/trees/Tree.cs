@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TrunkWar.scripts.trees;
 
 public partial class Tree : Area2D
@@ -11,7 +13,7 @@ public partial class Tree : Area2D
 	private Timer generatorTimer;
 	private GameManager gm;
 	
-	Upgrade[] upgrades;
+	public Upgrade[] components = new Upgrade[4];
 	
 	[ExportGroup("Producing")]
 	[Export] public Godot.Collections.Dictionary<string, float> Producing = new()
@@ -106,9 +108,19 @@ public partial class Tree : Area2D
 		return isAlive;
 	}
 
-	public void AddComponent(Upgrade upgrade)
+	public void AddComponent(Upgrade upgrade, int to)
 	{
-		
+		components[to]?.OnRemove(); 
+		components[to] = upgrade;    
+		upgrade.myTree = this;
+		upgrade.OnAdd();             
+	}
+	
+
+	public void RemoveComponent(int to)
+	{
+		components[to]?.OnRemove();
+		components[to] = null;
 	}
 
 	public void AddConsumer(string id, float val)
@@ -118,5 +130,13 @@ public partial class Tree : Area2D
 			Consuming[id] += val;
 		}
 		else GD.PrintErr("Consumer not found: " + id);
+	}
+	
+	public void AddProducer(string id, float val)
+	{
+		if (Producing.ContainsKey(id))
+			Producing[id] += val;
+		else GD.PrintErr("Producing not found: " + id);
+			
 	}
 }
