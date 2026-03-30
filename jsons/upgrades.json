@@ -1,0 +1,7 @@
+{
+  "WorldLeaf": {
+    "images": ["goldenLeaf","catalpa", "oakLeaf", "randLeaf"],
+    "names": ["Golden Leaf", "Catalpa Leaf", "Oak Leaf", "Some Leaf"],
+    "buffs": [""]
+  }
+}
