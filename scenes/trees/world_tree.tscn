@@ -25,4 +25,3 @@ shape = SubResource("RectangleShape2D_jy7ks")
 
 [node name="Sprite2D" parent="." index="1" unique_id=1009044770]
 texture = SubResource("CanvasTexture_ealcq")
-region_enabled = false

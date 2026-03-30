@@ -6,12 +6,24 @@
 [ext_resource type="Texture2D" uid="uid://cfmklfrpnljm6" path="res://assets/trees/treeBG.png" id="2_ybo4u"]
 [ext_resource type="Texture2D" uid="uid://ogmn5xyhmrj0" path="res://assets/trees/icon.png" id="3_ybo4u"]
 
-[node name="TreeInfo" type="Control" unique_id=342368432]
+[node name="TreeInfo" type="Control" unique_id=342368432 node_paths=PackedStringArray("inputLabel", "outputLabel", "b1", "b2", "b3", "b4", "leave", "leaf", "trunc", "branch", "root", "treeImage") groups=["treeinfo"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 478.0
 offset_bottom = 302.0
 script = ExtResource("1_ybo4u")
+inputLabel = NodePath("NinePatchRect/MarginContainer/HBoxContainer/control/Info")
+outputLabel = NodePath("NinePatchRect/MarginContainer/HBoxContainer/control/Produce")
+b1 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/leaf")
+b2 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/trunk")
+b3 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/branch")
+b4 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/root")
+leave = NodePath("leave")
+leaf = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/leaf/TextureRect")
+trunc = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/trunk/TextureRect")
+branch = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/branch/TextureRect")
+root = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/root/TextureRect")
+treeImage = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=116216886]
 texture_filter = 3
@@ -173,3 +185,15 @@ offset_right = 208.0
 grow_vertical = 0
 text = "empty"
 vertical_alignment = 2
+
+[node name="leave" type="Button" parent="." unique_id=165907884]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 248.99997
+offset_right = 494.0
+offset_bottom = 301.99997
+rotation = 0.65449846
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "x"
+flat = true

@@ -8,6 +8,7 @@ public partial class Tree : Area2D
 {
 	[Export] private Godot.Collections.Dictionary<int, Rect2> levelCrops = new();
 	[Export] Sprite2D treeSprite;
+	[Export] Line2D treeLine;
 	
 	private CollisionShape2D collisionShape;
 	private Timer generatorTimer;
@@ -37,7 +38,7 @@ public partial class Tree : Area2D
 		{ "Nitrogen", 0}
 	};
 	
-	int level = 0;
+	int level = 1;
 	private bool mouseHere;
 
 	private void OnInputEvent(Node viewport, InputEvent @event, long shapeidx)
@@ -45,7 +46,13 @@ public partial class Tree : Area2D
 		
 		if (@event is InputEventMouseButton { Pressed: true } eventKey)
         {
-        	
+        	UpgradeControl uc = GetTree().GetFirstNodeInGroup("upgrader") as UpgradeControl;
+	        uc.GlobalPosition = GlobalPosition;
+	        uc.Set(Name, () =>
+	        {
+		        var a = (TreeInfo)GetTree().GetFirstNodeInGroup("treeinfo");
+		        a.ApplyTree(this);
+	        }, this.QueueFree);
         }
 	}
 	
@@ -59,6 +66,12 @@ public partial class Tree : Area2D
 		InputEvent += OnInputEvent;
 		
 		generatorTimer.Timeout += Getting;
+
+		treeSprite.RegionRect = levelCrops[level];
+		UpdateLine(levelCrops[level]);
+		
+		MouseEntered += treeLine.Show;
+		MouseExited += treeLine.Hide;
 	}
 
 	
@@ -69,6 +82,7 @@ public partial class Tree : Area2D
 		treeSprite.RegionRect = levelCrops[1];
 		var shape = (RectangleShape2D)collisionShape.Shape;
 		shape.Size = levelCrops[1].Size;
+		UpdateLine(levelCrops[level]);
 	}
 
 	void Getting()
@@ -138,5 +152,20 @@ public partial class Tree : Area2D
 			Producing[id] += val;
 		else GD.PrintErr("Producing not found: " + id);
 			
+	}
+
+	void UpdateLine(Rect2 rect)
+	{
+		Vector2 topLeft = rect.Position;
+		Vector2 bottomRight = rect.End; 
+        
+		Vector2 topRight = new Vector2(bottomRight.X, topLeft.Y);
+		Vector2 bottomLeft = new Vector2(topLeft.X, bottomRight.Y);
+
+		Vector2[] points = [topLeft, topRight, bottomRight, bottomLeft];
+
+		treeLine.Points = points;
+
+		treeLine.Position = -rect.GetCenter();
 	}
 }

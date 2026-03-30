@@ -6,7 +6,7 @@ public partial class TreeInfo : Control
 {
 	[Export] public string treeType;
 	[Export] Label inputLabel, outputLabel;
-	[Export] private Button b1, b2, b3, b4;
+	[Export] private Button b1, b2, b3, b4, leave;
 	[Export] private TextureRect leaf, trunc, branch, root, treeImage;
 	
 
@@ -22,12 +22,22 @@ public partial class TreeInfo : Control
 	void _inputText(Tree tree)
 	{
 		StringBuilder ProductionText = new StringBuilder();
+		
+		ProductionText.AppendLine(treeType);
+		foreach (var con in tree.Consuming)
+			ProductionText.AppendLine($"{con.Key}: {con.Value}");
+
+
+		Show();
+	}
+
+	public override void _Ready()
+	{
+		base._Ready();
+
+		leave.Pressed += Hide;
         		
-        		ProductionText.AppendLine(treeType);
-        		foreach (var con in tree.Consuming)
-        			ProductionText.AppendLine($"{con.Key}: {con.Value}");
-        			
-        		inputLabel.Text = ProductionText.ToString();
+        		
 	}
 
 	void _imageFetch(string name, string whom)
