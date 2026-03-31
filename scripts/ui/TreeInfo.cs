@@ -27,7 +27,7 @@ public partial class TreeInfo : Control
 		foreach (var con in tree.Consuming)
 			ProductionText.AppendLine($"{con.Key}: {con.Value}");
 
-
+		_imageFetch(tree.components[0].Name, "leaf");
 		Show();
 	}
 
@@ -45,7 +45,7 @@ public partial class TreeInfo : Control
 		switch (whom)
 		{
 			case "leaf" :
-				
+				leaf.Texture = GD.Load<Texture2D>($"res://assets/upgrades/{_getImage(name)}.png");
 				break;
 			case "branch":
 					
@@ -57,5 +57,18 @@ public partial class TreeInfo : Control
 				
 				break;
 		}
+	}
+
+	string _getImage(string name)
+	{
+		return name switch
+		{
+			"Default World Tree" => "defaultLeaf",
+			"Golden Leaf" => "goldenLeaf",
+			"Oak Leaf" => "oakLeaf",
+			"Catalpa Leaf" => "catalpa",
+			"Hoya Leaf" => "randLeaf",
+			_ => "defaultLea"
+		};
 	}
 }

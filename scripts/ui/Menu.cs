@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using TrunkWar.scripts.trees;
 
 public partial class Menu : Control
 {
@@ -24,6 +25,7 @@ public partial class Menu : Control
 		index = (int)idx;
 		
 		difficultyLabel.Text = $"Difficulty: {difficulty[index]}%";
+		
 	}
 
 	void StartGame()
@@ -36,8 +38,10 @@ public partial class Menu : Control
 		var upgrader = GD.Load<PackedScene>("res://scenes/ui/upgrade.tscn").Instantiate<UpgradeControl>();
 		var treeInfo = GD.Load<PackedScene>("res://scenes/ui/tree_info.tscn").Instantiate<TreeInfo>();
 		var canva = new CanvasLayer();
+		
 		upgrader.Hide();
 		treeInfo.Hide();
+		
 		terrain.cam = cam;
 		underground.cam = cam;
 		gameMap.AddChild(underground);
@@ -47,8 +51,25 @@ public partial class Menu : Control
 		gameMap.AddChild(canva);
 		canva.AddChild(upgrader);
 		canva.AddChild(treeInfo);
+		
+		Wrench(tree);
+		
 		GetTree().Root.AddChild(gameMap);
 		QueueFree();
 	}
-	
+
+	void Wrench(Tree tRee)
+	{
+		Upgrade[] s = index
+			switch
+			{
+				0 =>
+					[Upgrades.DefaultWorldTreeLeaf(), null, null, null],
+				1 =>
+					[null, null, null, null],
+				_ =>
+					[null, null, null, null]
+			};
+		tRee.components = s;
+	}
 }

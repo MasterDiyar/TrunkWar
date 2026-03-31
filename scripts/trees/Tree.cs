@@ -74,9 +74,6 @@ public partial class Tree : Area2D
 		MouseExited += treeLine.Hide;
 	}
 
-	
-
-
 	public void LevelUp()
 	{
 		treeSprite.RegionRect = levelCrops[1];
@@ -142,15 +139,24 @@ public partial class Tree : Area2D
 		if (Consuming.ContainsKey(id))
 		{
 			Consuming[id] += val;
+		}else {
+			if (gm.Items.ContainsKey(id))
+				Consuming.Add(id, val);
+			else
+				GD.PrintErr("Consumer not found: " + id);
 		}
-		else GD.PrintErr("Consumer not found: " + id);
 	}
 	
 	public void AddProducer(string id, float val)
 	{
 		if (Producing.ContainsKey(id))
 			Producing[id] += val;
-		else GD.PrintErr("Producing not found: " + id);
+		else{
+			if (gm.Items.ContainsKey(id))
+				Producing.Add(id, val);
+			else
+				GD.PrintErr("Producing not found: " + id);
+		} 
 			
 	}
 

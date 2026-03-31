@@ -5,21 +5,32 @@ namespace TrunkWar.scripts.trees;
 public static class Upgrades
 {
 
-    public static Upgrade GoldenLeaf()
-    {
-        var upgrade = new Upgrade(
-            new Dictionary<string, float>()
+    public static Upgrade DefaultWorldTreeLeaf() => new Upgrade(
+        new ()
+        {
+            {"Energy", 10}
+        },
+        new()
+        {
+            {"Water", 1}
+        },
+        "Default World Tree"
+        
+    );
+    
+    public static Upgrade GoldenLeaf() => new Upgrade(
+            new ()
             {
-                {"Energy", 10}
+                {"Energy", 100},
+                {"Oxygen", 10}
             },
             new()
             {
-                {"Water", 10}
+                {"Water", 15}
             },
             "Golden Leaf"
             );
-        return upgrade;
-    }
+    
 
     public static Upgrade OakLeaf()
     {
