@@ -9,6 +9,8 @@ public partial class TreeInfo : Control
 	[Export] Label inputLabel, outputLabel;
 	[Export] private Button b1, b2, b3, b4, leave;
 	[Export] private TextureRect leaf, trunc, branch, root, treeImage;
+
+	private UpgradeChooser UC;
 	
 
 	public void ApplyTree(Tree tree)
@@ -28,7 +30,7 @@ public partial class TreeInfo : Control
 		foreach (var con in tree.Consuming)
 			ProductionText.AppendLine($"{con.Key}: {con.Value}");
 
-		_imageFetch(tree.components[0].Name, "leaf");
+		_imageFetch(tree.components[0].Name, "leaf", tree);
 		Show();
 	}
 
@@ -37,15 +39,22 @@ public partial class TreeInfo : Control
 		base._Ready();
 
 		leave.Pressed += Hide;
-        		
-        		
+
+		UC = GD.Load<PackedScene>("res://scenes/ui/upgradeChooser.tscn").Instantiate<UpgradeChooser>();
+		UC.Hide();
+		GetParent().CallDeferred("add_child",UC);
 	}
 
-	void _imageFetch(string name, string whom)
+	void _imageFetch(string name, string whom, Tree tree)
 	{
 		switch (whom) {
 			case "leaf" :
 				leaf.Texture = GD.Load<Texture2D>($"res://assets/upgrades/{_imageMap[name]}.png");
+				b1.Pressed += () =>
+				{
+					UC.Show();
+					UC.LeafInit(leaf, tree);
+				};
 				break;
 			case "branch":
 				

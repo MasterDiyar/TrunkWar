@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfmklfrpnljm6" path="res://assets/trees/treeBG.png" id="2_ybo4u"]
 [ext_resource type="Texture2D" uid="uid://ogmn5xyhmrj0" path="res://assets/trees/icon.png" id="3_ybo4u"]
 
-[node name="TreeInfo" type="Control" unique_id=342368432 node_paths=PackedStringArray("inputLabel", "outputLabel", "b1", "b2", "b3", "b4", "leaf", "trunc", "branch", "root", "treeImage") groups=["treeinfo"]]
+[node name="TreeInfo" type="Control" unique_id=342368432 node_paths=PackedStringArray("inputLabel", "outputLabel", "b1", "b2", "b3", "b4", "leave", "leaf", "trunc", "branch", "root", "treeImage") groups=["treeinfo"]]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,6 +26,7 @@ b1 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureR
 b2 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/trunk")
 b3 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/branch")
 b4 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/root")
+leave = NodePath("leave")
 leaf = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/leaf/TextureRect")
 trunc = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/trunk/TextureRect")
 branch = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/branch/TextureRect")

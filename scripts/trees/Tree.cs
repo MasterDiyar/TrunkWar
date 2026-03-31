@@ -54,6 +54,7 @@ public partial class Tree : Area2D
 	        {
 		        var a = (TreeInfo)GetTree().GetFirstNodeInGroup("treeinfo");
 		        a.ApplyTree(this);
+		        uc.Hide();
 	        }, this.QueueFree);
         }
 	}
@@ -123,6 +124,8 @@ public partial class Tree : Area2D
 
 	public void AddComponent(Upgrade upgrade, int to)
 	{
+		var component = components[to];
+		if (component != null) component.myTree = this;
 		components[to]?.OnRemove(); 
 		components[to] = upgrade;    
 		upgrade.myTree = this;
