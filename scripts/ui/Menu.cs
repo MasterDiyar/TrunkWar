@@ -11,6 +11,7 @@ public partial class Menu : Control
 
 	private int index = 0;
 	int[] difficulty = [140, 120, 100, 80, 60, 40];
+	private string[] treeType = ["world tree", ""];
 	private string[] terrainName = ["black_soil"],
 		treeName = ["world_tree"];
 	public override void _Ready()
@@ -24,7 +25,7 @@ public partial class Menu : Control
 	{
 		index = (int)idx;
 		
-		difficultyLabel.Text = $"Difficulty: {difficulty[index]}%";
+		difficultyLabel.Text = $"Difficulty: {difficulty[index]}%\n Tree type: {treeType[index]}.";
 		
 	}
 
@@ -71,5 +72,6 @@ public partial class Menu : Control
 					[null, null, null, null]
 			};
 		tRee.components = s;
+		tRee.treeType = treeType[index];
 	}
 }

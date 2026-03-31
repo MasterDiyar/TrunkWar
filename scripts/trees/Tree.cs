@@ -16,6 +16,8 @@ public partial class Tree : Area2D
 	
 	public Upgrade[] components = new Upgrade[4];
 	
+	public string treeType;
+	
 	[ExportGroup("Producing")]
 	[Export] public Godot.Collections.Dictionary<string, float> Producing = new()
 	{

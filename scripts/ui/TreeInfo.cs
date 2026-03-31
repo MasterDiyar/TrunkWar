@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 public partial class TreeInfo : Control
@@ -42,33 +43,28 @@ public partial class TreeInfo : Control
 
 	void _imageFetch(string name, string whom)
 	{
-		switch (whom)
-		{
+		switch (whom) {
 			case "leaf" :
-				leaf.Texture = GD.Load<Texture2D>($"res://assets/upgrades/{_getImage(name)}.png");
+				leaf.Texture = GD.Load<Texture2D>($"res://assets/upgrades/{_imageMap[name]}.png");
 				break;
 			case "branch":
-					
+				
 				break;
 			case "trunc" :
+				
 				break;
-					
 			case "root":
 				
 				break;
 		}
 	}
 
-	string _getImage(string name)
+	public static readonly Dictionary<string, string> _imageMap = new()
 	{
-		return name switch
-		{
-			"Default World Tree" => "defaultLeaf",
-			"Golden Leaf" => "goldenLeaf",
-			"Oak Leaf" => "oakLeaf",
-			"Catalpa Leaf" => "catalpa",
-			"Hoya Leaf" => "randLeaf",
-			_ => "defaultLea"
-		};
-	}
+		{ "Default World Tree", "defaultLeaf" },
+		{ "Golden Leaf", "goldenLeaf" },
+		{ "Oak Leaf", "oakLeaf" },
+		{ "Catalpa Leaf", "catalpa" },
+		{ "Hoya Leaf", "randLeaf" }
+	};
 }

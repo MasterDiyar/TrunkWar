@@ -6,11 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://cfmklfrpnljm6" path="res://assets/trees/treeBG.png" id="2_ybo4u"]
 [ext_resource type="Texture2D" uid="uid://ogmn5xyhmrj0" path="res://assets/trees/icon.png" id="3_ybo4u"]
 
-[node name="TreeInfo" type="Control" unique_id=342368432 node_paths=PackedStringArray("inputLabel", "outputLabel", "b1", "b2", "b3", "b4", "leave", "leaf", "trunc", "branch", "root", "treeImage") groups=["treeinfo"]]
+[node name="TreeInfo" type="Control" unique_id=342368432 node_paths=PackedStringArray("inputLabel", "outputLabel", "b1", "b2", "b3", "b4", "leaf", "trunc", "branch", "root", "treeImage") groups=["treeinfo"]]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 478.0
-offset_bottom = 302.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -151.0
+offset_right = 239.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ybo4u")
 inputLabel = NodePath("NinePatchRect/MarginContainer/HBoxContainer/control/Info")
 outputLabel = NodePath("NinePatchRect/MarginContainer/HBoxContainer/control/Produce")
@@ -18,7 +26,6 @@ b1 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureR
 b2 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/trunk")
 b3 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/branch")
 b4 = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/root")
-leave = NodePath("leave")
 leaf = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/leaf/TextureRect")
 trunc = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/trunk/TextureRect")
 branch = NodePath("NinePatchRect/MarginContainer/HBoxContainer/TextureRect2/TextureRect/branch/TextureRect")

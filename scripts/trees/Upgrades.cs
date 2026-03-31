@@ -5,7 +5,7 @@ namespace TrunkWar.scripts.trees;
 public static class Upgrades
 {
 
-    public static Upgrade DefaultWorldTreeLeaf() => new Upgrade(
+    public static Upgrade DefaultWorldTreeLeaf() => new (
         new ()
         {
             {"Energy", 10}
@@ -18,7 +18,7 @@ public static class Upgrades
         
     );
     
-    public static Upgrade GoldenLeaf() => new Upgrade(
+    public static Upgrade GoldenLeaf() => new (
             new ()
             {
                 {"Energy", 100},
@@ -45,7 +45,7 @@ public static class Upgrades
         }, "Oak Leaf");
     }
 
-    public static Upgrade CatalpaLeaf() => new Upgrade(
+    public static Upgrade CatalpaLeaf() => new(
     new(){
         { "Carbon", 12 },
         { "Oxygen", 17 },
@@ -55,7 +55,7 @@ public static class Upgrades
         {"Nitrogen", 2.02f }
     },"Catalpa Leaf");
 
-    public static Upgrade HoyaLeaf() => new Upgrade(new ()
+    public static Upgrade HoyaLeaf() => new(new ()
         {
             {"Carbon", -3 },
             {"Oxygen", -4 },
@@ -67,4 +67,6 @@ public static class Upgrades
             {"Nitrogen", -.74f }
         }, "Hoya Leaf"
         );
+
+    public static readonly Upgrade[] WorldTreeList = [DefaultWorldTreeLeaf(), CatalpaLeaf(), GoldenLeaf(), OakLeaf(), HoyaLeaf()];
 }
