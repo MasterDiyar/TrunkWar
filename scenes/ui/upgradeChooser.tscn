@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ce4y8hwta441a"]
+[gd_scene format=3 uid="uid://dg3qbihj8xanu"]
 
 [ext_resource type="Texture2D" uid="uid://cfmklfrpnljm6" path="res://assets/trees/treeBG.png" id="1_11g3d"]
 [ext_resource type="Script" uid="uid://cvpyf5bqg2wde" path="res://scripts/ui/UpgradeChooser.cs" id="1_x2ym0"]

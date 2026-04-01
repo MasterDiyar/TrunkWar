@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d0kpfc5pqolu5"]
+
+[ext_resource type="Script" uid="uid://dgcviult6kq36" path="res://scripts/ui/Concole.cs" id="1_ybxxg"]
+
+[node name="Control" type="Control" unique_id=552103126 node_paths=PackedStringArray("textEdit", "label")]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+script = ExtResource("1_ybxxg")
+textEdit = NodePath("VBoxContainer/TextEdit")
+label = NodePath("VBoxContainer/Label")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1618000806]
+layout_mode = 0
+offset_right = 297.0
+offset_bottom = 97.0
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer" unique_id=131016763]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "text"
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=168532466]
+layout_mode = 2
+text = "out"

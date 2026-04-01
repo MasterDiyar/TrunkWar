@@ -31,27 +31,30 @@ public partial class Menu : Control
 
 	void StartGame()
 	{
-		var gameMap = GD.Load<PackedScene>("res://scenes/map/game.tscn").Instantiate<Node2D>();
-		var terrain = GD.Load<PackedScene>($"res://scenes/terrains/{terrainName[index]}_terrain.tscn").Instantiate<Terrain>();
-		var underground = GD.Load<PackedScene>($"res://scenes/terrains/{terrainName[index]}_underground.tscn").Instantiate<Terrain>();
-		var tree = GD.Load<PackedScene>($"res://scenes/trees/{treeName[index]}.tscn").Instantiate<Tree>();
-		var cam = GD.Load<PackedScene>("res://scenes/user/user_cam.tscn").Instantiate<UserCam>();
+		var gameMap =  GD.Load<PackedScene>("res://scenes/map/game.tscn").Instantiate<Node2D>();
+		var terrain =  GD.Load<PackedScene>($"res://scenes/terrains/{terrainName[index]}_terrain.tscn").Instantiate<Terrain>();
+		var under =    GD.Load<PackedScene>($"res://scenes/terrains/{terrainName[index]}_underground.tscn").Instantiate<Terrain>();
+		var tree =     GD.Load<PackedScene>($"res://scenes/trees/{treeName[index]}.tscn").Instantiate<Tree>();
+		var cam =      GD.Load<PackedScene>("res://scenes/user/user_cam.tscn").Instantiate<UserCam>();
 		var upgrader = GD.Load<PackedScene>("res://scenes/ui/upgrade.tscn").Instantiate<UpgradeControl>();
 		var treeInfo = GD.Load<PackedScene>("res://scenes/ui/tree_info.tscn").Instantiate<TreeInfo>();
+		var concole =  GD.Load<PackedScene>("res://scenes/ui/concole.tscn").Instantiate<Concole>();
 		var canva = new CanvasLayer();
 		
 		upgrader.Hide();
 		treeInfo.Hide();
+		concole.Hide();
 		
 		terrain.cam = cam;
-		underground.cam = cam;
-		gameMap.AddChild(underground);
+		under.cam = cam;
+		gameMap.AddChild(under);
 		gameMap.AddChild(terrain);
 		gameMap.AddChild(cam);
-		gameMap.AddChild(tree);
 		gameMap.AddChild(canva);
+		terrain.AddChild(tree);
 		canva.AddChild(upgrader);
 		canva.AddChild(treeInfo);
+		canva.AddChild(concole);
 		
 		Wrench(tree);
 		
