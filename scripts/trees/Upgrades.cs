@@ -6,40 +6,19 @@ public static class Upgrades
 {
 
     public static Upgrade DefaultWorldTreeLeaf() => new (
-        new ()
-        {
-            {"Energy", 10}
-        },
-        new()
-        {
-            {"Water", 1}
-        },
-        "Default World Tree"
-        
-    );
+        new (){{"Energy", 10}}, new(){{"Water", 1}},"Default World Tree");
     
-    public static Upgrade GoldenLeaf() => new (
-            new ()
-            {
-                {"Energy", 100},
-                {"Oxygen", 10}
-            },
-            new()
-            {
-                {"Water", 15}
-            },
-            "Golden Leaf"
-            );
+    public static Upgrade GoldenLeaf() => new(
+            new (){{"Energy", 100},{"Oxygen", 10}},
+            new(){{"Water", 15}},"Golden Leaf");
     
 
     public static Upgrade OakLeaf()
     {
-        return new Upgrade(new ()
-        {
+        return new Upgrade(new (){
             { "Carbon", 4 },
             { "Oxygen", 6 },
-        }, new()
-        {
+        }, new(){
             {"Water", 2.04f },
             {"Nitrogen", 0.33f}
         }, "Oak Leaf");
@@ -67,6 +46,11 @@ public static class Upgrades
             {"Nitrogen", -.74f }
         }, "Hoya Leaf"
         );
+    
+    public static Upgrade DefaultIgdrasilLeaf() => new(new ()
+        {{"Energy", 11.1f}}, new(){{"Water", 0.91f}},"Default Igdrasil");
+    
 
-    public static readonly Upgrade[] WorldTreeList = [DefaultWorldTreeLeaf(), CatalpaLeaf(), GoldenLeaf(), OakLeaf(), HoyaLeaf()];
+    public static readonly Upgrade[] WorldTreeLeafList = [DefaultWorldTreeLeaf(), CatalpaLeaf(), GoldenLeaf(), OakLeaf(), HoyaLeaf()];
+    public static readonly Upgrade[] IgdrasilLeafList  = [DefaultIgdrasilLeaf() , CatalpaLeaf(), GoldenLeaf(), OakLeaf()];
 }

@@ -23,7 +23,7 @@ public partial class UpgradeChooser : Control
         
         switch (tree.treeType) {
             case "world tree":
-            var worldTreeList = Upgrades.WorldTreeList;
+            var worldTreeList = Upgrades.WorldTreeLeafList;
             var imageMap = TreeInfo._imageMap;
             buttons = new Button[worldTreeList.Length];
             for (int i = 0; i < buttons.Length; i++) {

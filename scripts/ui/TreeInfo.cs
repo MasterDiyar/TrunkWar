@@ -74,6 +74,9 @@ public partial class TreeInfo : Control
 		{ "Golden Leaf", "goldenLeaf" },
 		{ "Oak Leaf", "oakLeaf" },
 		{ "Catalpa Leaf", "catalpa" },
-		{ "Hoya Leaf", "randLeaf" }
+		{ "Hoya Leaf", "randLeaf" },
+		{"Default Igdrasil", "defaultIgdrasil"},
+		
+		
 	};
 }
